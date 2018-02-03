@@ -1,6 +1,6 @@
 - name: Creates type enforcement files
   copy:
-    dest: "{{ semodule_file_type_enforcement_dest }}{{ semodule.name }}"
+    dest: "{{ selinux_file_type_enforcement_dest }}{{ semodule.name }}"
     content: "{{ semodule.module }}"
     owner: root
     group: root
@@ -12,7 +12,7 @@
 - name: checkmodule
   shell: "checkmodule -M -m -o {{ semodule.name|basename|replace('.te', '.mod') }} {{ semodule.name|basename }}"
   args:
-    chdir: "{{ semodule_file_type_enforcement_dest }}"
+    chdir: "{{ selinux_file_type_enforcement_dest }}"
   when:
     - type_enforcement_file_results.changed
     - ansible_os_family == "RedHat"
@@ -21,7 +21,7 @@
 - name: semodule_package
   shell: "semodule_package -o {{ semodule.name|basename|replace('.te', '.pp') }} -m {{ semodule.name|basename|replace('.te', '.mod') }}"
   args:
-    chdir: "{{ semodule_file_type_enforcement_dest }}"
+    chdir: "{{ selinux_file_type_enforcement_dest }}"
   when:
     - type_enforcement_file_results.changed
     - ansible_os_family == "RedHat"
@@ -29,7 +29,7 @@
 - name: semodule
   shell: "semodule -i {{ semodule.name|basename|replace('.te', '.pp') }}"
   args:
-    chdir: "{{ semodule_file_type_enforcement_dest }}"
+    chdir: "{{ selinux_file_type_enforcement_dest }}"
   when:
     - type_enforcement_file_results.changed
     - ansible_os_family == "RedHat"

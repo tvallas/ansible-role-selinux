@@ -1,10 +1,10 @@
 galaxy_info:
   author: Tuomas Vallaskangas
-  description: Role to manage SELinux policy modules.
+  description: Role to manage SELinux modules.
 
   license: Propriertary
 
-  min_ansible_version: 2.2
+  min_ansible_version: 2.4
 
   platforms:
   - name: EL

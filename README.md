@@ -1,4 +1,4 @@
-Role Name
+Ansible role selinux
 =========
 
 Ansible role to manage SELinux policy modules.
@@ -37,6 +37,16 @@ semodule_semodules:
 #### `semodule_file_type_enforcement_dest` (optional)
 
 Destination directory for type enforcement files.
+
+#### `selinux_booleans`
+
+Configures SElinux booleans. For example:
+
+```
+selinux_booleans:
+  - name: daemons_enable_cluster_mode
+    state: yes
+```
 
 Dependencies
 ------------

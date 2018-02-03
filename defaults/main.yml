@@ -1,4 +1,12 @@
 ---
-# defaults file for semodule
-semodule_file_type_enforcement_dest: /opt/semodule/
-semodule_semodules: []
+# defaults file for selinux
+selinux_file_type_enforcement_dest: /opt/semodule/
+selinux_semodules: []
+
+
+# define booleans as example below
+#   - name: httpd_can_network_connect
+#     state: present
+#     persistent: yes
+
+selinux_booleans: []
