@@ -1,0 +1,4 @@
+---
+# defaults file for semodule
+semodule_file_type_enforcement_dest: /opt/semodule/
+semodule_semodules: []
