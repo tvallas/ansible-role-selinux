@@ -11,7 +11,7 @@ None
 Role Variables
 --------------
 
-#### `semodule_semodules` (optional)
+#### `selinux_semodules` (optional)
 
 Manages type enforcement policy files. For example:
 
@@ -34,7 +34,7 @@ semodule_semodules:
       allow zabbix_agent_t mysqld_etc_t:file { open read };
 ```
 
-#### `semodule_file_type_enforcement_dest` (optional)
+#### `selinux_file_type_enforcement_dest` (optional)
 
 Destination directory for type enforcement files.
 
@@ -59,7 +59,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - { role: ansible-role-semodule, tags: semodule }
+         - { role: selinux, tags: selinux }
 
 License
 -------
